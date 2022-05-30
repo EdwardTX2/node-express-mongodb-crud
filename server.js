@@ -1,9 +1,11 @@
+const dotenv = require('dotenv') // .env file
+dotenv.config() // using .env
+const connectionString = `mongodb+srv://${process.env.USER}:${process.env.PW}@cluster0.9accb.mongodb.net/?retryWrites=true&w=majority`
 const express = require('express')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const app = express()
 
-const connectionString = 'mongodb+srv://EdwardTX:rWDT8Ua7.HBb5kK@cluster0.9accb.mongodb.net/?retryWrites=true&w=majority'
 MongoClient.connect(connectionString, (err, client) => {
     if (err) return console.error(err)
     console.log('Connected to Database')
